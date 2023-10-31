@@ -1,11 +1,11 @@
 project "GLFW"
-  kind "StaticLib"
+	kind "StaticLib"
 	language "C"
 	staticruntime "off"
 	warnings "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("%{prj.name}/bin/")
+	objdir ("bin/" .. outputdir .. "/obj")
 
 	files
 	{
@@ -24,14 +24,14 @@ project "GLFW"
 
 		"src/platform.c",
 		"src/vulkan.c",
-		"src/window.c",
+		"src/window.c"
 	}
 
 	filter "system:linux"
 		pic "On"
 
 		systemversion "latest"
-		
+
 		files
 		{
 			"src/x11_init.c",
@@ -41,7 +41,6 @@ project "GLFW"
 			"src/posix_module.c",
 			"src/posix_time.c",
 			"src/posix_thread.c",
-			"src/posix_module.c",
 			"src/glx_context.c",
 			"src/egl_context.c",
 			"src/osmesa_context.c",
@@ -84,8 +83,8 @@ project "GLFW"
 			"src/win32_joystick.c",
 			"src/win32_module.c",
 			"src/win32_monitor.c",
-			"src/win32_time.c",
 			"src/win32_thread.c",
+			"src/win32_time.c",
 			"src/win32_window.c",
 			"src/wgl_context.c",
 			"src/egl_context.c",
